@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8회차 | 디버깅, 테스트와 기능 확장</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">R</span> React 학습 노트</a><nav class="top-nav"><a href="index.html">과정 안내</a><a href="all-lessons.html">전체 통합본</a></nav></header>
+  <main class="page">
+    <section class="hero"><p class="eyebrow">SESSION 08 · 45–60 MIN</p><h1>디버깅, 테스트와 기능 확장</h1><p class="hero-copy">기능의 상태 흐름을 스스로 추적하고, 현재 화면에 맞는 테스트를 만든 뒤 작은 개선 하나를 완성합니다.</p><div class="meta-row"><span class="meta">핵심: 관찰 · 재현 · 검증</span><span class="meta">학습 과정 마무리</span></div></section>
+    <div class="lesson-layout"><article class="lesson-main">
+      <section class="content-section"><h2>이번 회차의 목표</h2><ul><li>버그를 작은 재현 절차로 좁힙니다.</li><li>사용자 관점에서 화면 동작을 테스트합니다.</li><li>학습한 state·props·effect를 활용해 작은 기능을 추가합니다.</li></ul></section>
+      <section class="content-section"><h2>코드 따라가기</h2><p><a href="../../src/App.test.jsx">기존 테스트</a>는 기본 React 안내 화면의 문구를 기대하므로, 일정 관리 화면과 기대값이 다릅니다. 테스트 실패를 무시하는 대신 이 회차에서 새 화면의 핵심 사용자 동작에 맞게 테스트를 고치는 연습을 합니다.</p><p><a href="../../src/setupTests.js">setupTests.js</a>는 DOM matcher를 추가하고, 테스트 환경은 <a href="../../vite.config.js">vite.config.js</a>의 Vitest 설정에서 `jsdom`으로 지정합니다.</p><pre class="code-note">npm test -- --run
+npm run build</pre><p>첫 명령은 테스트를 한 번 실행하고, 두 번째는 배포 빌드가 가능한지 확인합니다. 실패하면 오류 메시지와 실행 순서를 이용해 원인을 좁힙니다.</p></section>
+      <section class="content-section"><h2>진행 순서</h2><ol><li>5분: 재현할 사용자 동작을 하나 선택합니다.</li><li>10분: 테스트의 준비·동작·기대 결과를 분리합니다.</li><li>15분: 달력 화면의 테스트를 하나 수정하거나 작성합니다.</li><li>15분: 작은 기능을 추가해 수동·자동으로 검증합니다.</li><li>5분: 변경 이유와 남은 한계를 동료에게 설명합니다.</li></ol></section>
+      <div class="practice"><h3>확장 과제</h3><p>예: 일정이 없는 날짜의 빈 상태 개선, 선택 날짜에 일정 개수 표시, 일정 제목 검색 중 하나를 선택합니다. 기능 하나만 구현하고, 어떤 state가 필요한지 먼저 설명한 뒤 코드를 수정하세요.</p></div>
+      <section class="content-section"><h2>마무리 점검</h2><ul class="checklist"><li>사용자 동작에서 화면 갱신까지 상태 흐름을 설명할 수 있습니다.</li><li>테스트가 실제 사용자의 동작과 결과를 검증합니다.</li><li>추가 기능의 데이터·상태·화면 책임을 구분했습니다.</li><li>localStorage의 한계와 서버 저장이 필요한 경우를 설명할 수 있습니다.</li></ul></section>
+    </article><aside class="lesson-aside"><h2>오늘의 흐름</h2><ol><li>동작 재현</li><li>원인 위치 좁히기</li><li>작게 수정</li><li>테스트·빌드 확인</li></ol></aside></div>
+    <nav class="pager"><a href="lesson-07.html"><span>이전 회차</span>← useEffect와 저장</a><a href="index.html"><span>과정으로</span>전체 회차 보기 →</a></nav>
+  </main>
+</body>
+</html>

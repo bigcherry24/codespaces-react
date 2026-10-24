@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2회차 | 컴포넌트, JSX와 props</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">R</span> React 학습 노트</a><nav class="top-nav"><a href="index.html">과정 안내</a><a href="all-lessons.html">전체 통합본</a></nav></header>
+  <main class="page">
+    <section class="hero"><p class="eyebrow">SESSION 02 · 45–60 MIN</p><h1>컴포넌트, JSX와 props</h1><p class="hero-copy">화면을 재사용 가능한 단위로 나누고, 부모가 자식에게 데이터와 동작을 전달하는 방법을 익힙니다.</p><div class="meta-row"><span class="meta">핵심: 컴포넌트 · JSX · props</span><span class="meta">부모 → 자식</span></div></section>
+    <div class="lesson-layout"><article class="lesson-main">
+      <section class="content-section"><h2>이번 회차의 목표</h2><ul><li>함수 컴포넌트가 UI 조각을 반환하는 방식 이해</li><li>JSX의 표현식과 속성 규칙 이해</li><li>props로 값을 전달하고 callback으로 사용자 행동을 부모에게 알리는 흐름 이해</li></ul></section>
+      <section class="content-section"><h2>코드 따라가기</h2><p><a href="../../src/App.jsx">App.jsx</a>는 달력과 일별 일정을 배치하고, 입력 UI를 <a href="../../src/ScheduleDialog.jsx">ScheduleDialog.jsx</a>에 위임합니다. 부모는 `schedule`, `onClose`, `onSave`를 props로 전달합니다.</p><pre class="code-note">&lt;ScheduleDialog
+  schedule={dialogSchedule}
+  onClose={() =&gt; setIsDialogOpen(false)}
+  onSave={saveSchedule}
+/&gt;</pre><p>JSX 중괄호 안에는 JavaScript 표현식을 쓸 수 있습니다. 컴포넌트 이름은 대문자로 시작하고, 반환할 요소가 여러 개면 하나의 부모 요소로 감쌉니다.</p></section>
+      <section class="content-section"><h2>진행 순서</h2><ol><li>5분: 현재 화면을 달력·일정 목록·모달로 나눠봅니다.</li><li>10분: 함수 컴포넌트와 JSX의 기본 규칙을 확인합니다.</li><li>15분: 부모가 모달에 전달하는 props를 표시합니다.</li><li>15분: 모달에서 `onSave`가 호출되는 경로를 추적합니다.</li><li>5분: 데이터 전달 방향을 화살표로 정리합니다.</li></ol></section>
+      <div class="practice"><h3>실습</h3><p>모달의 제목을 prop으로 받도록 바꾸거나, `ScheduleDialog`에 전달되는 prop 하나를 잠시 제거해 오류가 어디에서 드러나는지 관찰하세요.</p></div>
+      <section class="content-section"><h2>마무리 질문</h2><ul class="checklist"><li>props는 어느 방향으로 전달되나요?</li><li>자식 컴포넌트는 저장 결과를 어떻게 부모에게 알리나요?</li><li>JSX 중괄호에는 어떤 값이나 식을 넣을 수 있나요?</li></ul></section>
+    </article><aside class="lesson-aside"><h2>오늘의 흐름</h2><ol><li>UI 단위 나누기</li><li>props로 전달</li><li>callback 호출</li><li>부모가 상태 갱신</li></ol></aside></div>
+    <nav class="pager"><a href="lesson-01.html"><span>이전 회차</span>← 앱 진입과 렌더링</a><a href="lesson-03.html"><span>다음 회차</span>useState와 이벤트 →</a></nav>
+  </main>
+</body>
+</html>

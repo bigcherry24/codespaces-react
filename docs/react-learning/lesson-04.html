@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4회차 | 배열 렌더링과 파생 데이터</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">R</span> React 학습 노트</a><nav class="top-nav"><a href="index.html">과정 안내</a><a href="all-lessons.html">전체 통합본</a></nav></header>
+  <main class="page">
+    <section class="hero"><p class="eyebrow">SESSION 04 · 45–60 MIN</p><h1>배열 렌더링과 파생 데이터</h1><p class="hero-copy">달력의 날짜와 일정이 배열에서 만들어지는 과정을 보고, 저장된 원본 데이터와 화면에 필요한 계산값을 구분합니다.</p><div class="meta-row"><span class="meta">핵심: map · filter · sort · key</span><span class="meta">계산된 UI</span></div></section>
+    <div class="lesson-layout"><article class="lesson-main">
+      <section class="content-section"><h2>이번 회차의 목표</h2><ul><li>배열 데이터를 JSX 요소로 변환합니다.</li><li>`key`가 목록 항목의 식별에 필요한 이유를 이해합니다.</li><li>원본 일정에서 필터링·정렬한 값을 렌더링 시 계산합니다.</li></ul></section>
+      <section class="content-section"><h2>코드 따라가기</h2><p><a href="../../src/App.jsx">App.jsx</a>는 `Array.from`으로 42일을 만들고, `map`으로 날짜 셀을 렌더링합니다. 각 일정도 `map`으로 표시하고 고유한 `id`를 key로 씁니다.</p><pre class="code-note">const calendarDays = Array.from({ length: 42 }, (_, index) =&gt;
+  calendarStart.add(index, 'day')
+);
+
+const selectedSchedules = schedules
+  .filter((schedule) =&gt; schedule.date === selectedDate)
+  .sort((first, second) =&gt; first.startTime.localeCompare(second.startTime));</pre><p>`selectedSchedules`는 저장할 별도 state가 아니라 기존 일정과 선택 날짜로부터 계산됩니다. 원본과 중복되는 state를 줄이면 서로 어긋날 가능성도 줄어듭니다.</p></section>
+      <section class="content-section"><h2>진행 순서</h2><ol><li>5분: 달력의 한 날짜에 어떤 데이터가 보이는지 살펴봅니다.</li><li>10분: `map`과 JSX의 `key`를 확인합니다.</li><li>15분: 날짜별 `filter`와 일정 `sort`를 따라갑니다.</li><li>15분: 일정 4개 이상을 추가해 초과 표시를 확인합니다.</li><li>5분: state와 파생 데이터의 차이를 정리합니다.</li></ol></section>
+      <div class="practice"><h3>실습</h3><p>일정 칩 표시 개수를 3개에서 2개로 바꾸고 초과 일정 표시가 어떻게 변하는지 확인하세요. `key`를 잠시 제거했을 때 개발자 콘솔 메시지도 살펴보세요.</p></div>
+      <section class="content-section"><h2>마무리 질문</h2><ul class="checklist"><li>왜 목록에 안정적인 `key`가 필요한가요?</li><li>선택 날짜 일정은 왜 별도 state에 저장하지 않아도 되나요?</li><li>달력의 42개 날짜는 어떤 계산으로 만들어지나요?</li></ul></section>
+    </article><aside class="lesson-aside"><h2>오늘의 흐름</h2><ol><li>원본 배열</li><li>필터·정렬</li><li>map으로 요소 생성</li><li>key로 식별</li></ol></aside></div>
+    <nav class="pager"><a href="lesson-03.html"><span>이전 회차</span>← useState와 이벤트</a><a href="lesson-05.html"><span>다음 회차</span>폼과 제어 컴포넌트 →</a></nav>
+  </main>
+</body>
+</html>

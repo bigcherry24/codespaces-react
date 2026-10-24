@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6회차 | 상태 업데이트와 CRUD</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">R</span> React 학습 노트</a><nav class="top-nav"><a href="index.html">과정 안내</a><a href="all-lessons.html">전체 통합본</a></nav></header>
+  <main class="page">
+    <section class="hero"><p class="eyebrow">SESSION 06 · 45–60 MIN</p><h1>상태 업데이트와 CRUD</h1><p class="hero-copy">일정 추가·수정·삭제를 추적하면서 React에서 배열과 객체 state를 불변 방식으로 갱신하는 이유를 배웁니다.</p><div class="meta-row"><span class="meta">핵심: spread · map · filter · callback</span><span class="meta">데이터 변경</span></div></section>
+    <div class="lesson-layout"><article class="lesson-main">
+      <section class="content-section"><h2>이번 회차의 목표</h2><ul><li>배열 state를 직접 변경하지 않고 새 배열로 갱신합니다.</li><li>함수형 state 업데이트에서 최신 값을 사용하는 이유를 이해합니다.</li><li>CRUD 동작을 컴포넌트와 훅의 책임으로 나눠 설명합니다.</li></ul></section>
+      <section class="content-section"><h2>코드 따라가기</h2><p><a href="../../src/useSchedules.js">useSchedules.js</a>는 일정 저장과 변경을 모아둔 커스텀 훅입니다. 추가는 새 배열, 수정은 `map`, 삭제는 `filter`로 기존 배열을 변경하지 않고 새 값을 만듭니다.</p><pre class="code-note">setSchedules((currentSchedules) =&gt;
+  currentSchedules.map((schedule) =&gt;
+    schedule.id === id
+      ? { ...schedule, ...updates }
+      : schedule
+  )
+);</pre><p>함수형 업데이트는 이전 state를 인자로 받아 다음 state를 계산합니다. App은 사용자 동작을 받고 훅의 함수를 호출하며, 훅은 데이터 변경을 담당합니다.</p></section>
+      <section class="content-section"><h2>진행 순서</h2><ol><li>5분: 일정 저장 전후 화면을 관찰합니다.</li><li>10분: 일정 객체의 id가 수정·삭제에 쓰이는 방식 확인</li><li>15분: add, update, delete 함수를 한 줄씩 추적</li><li>15분: 새 일정 등록, 수정, 삭제를 수행하고 목록 확인</li><li>5분: 각 책임이 어느 파일에 있는지 설명합니다.</li></ol></section>
+      <div class="practice"><h3>실습</h3><p>일정 수정 시 제목만 바꾸고 날짜·메모·색상은 유지되는 이유를 spread 연산자와 함께 설명하세요. 이어서 삭제 확인을 취소했을 때 데이터가 그대로인지 확인하세요.</p></div>
+      <section class="content-section"><h2>마무리 질문</h2><ul class="checklist"><li>state 배열에 `push`를 직접 쓰지 않는 이유는 무엇인가요?</li><li>수정할 대상을 어떻게 찾고 다른 항목은 어떻게 유지하나요?</li><li>함수형 업데이트는 어떤 문제를 예방하나요?</li></ul></section>
+    </article><aside class="lesson-aside"><h2>오늘의 흐름</h2><ol><li>사용자 동작</li><li>CRUD 함수 호출</li><li>새 배열 계산</li><li>state 갱신·재렌더</li></ol></aside></div>
+    <nav class="pager"><a href="lesson-05.html"><span>이전 회차</span>← 폼과 제어 컴포넌트</a><a href="lesson-07.html"><span>다음 회차</span>useEffect와 저장 →</a></nav>
+  </main>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5회차 | 폼과 제어 컴포넌트</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">R</span> React 학습 노트</a><nav class="top-nav"><a href="index.html">과정 안내</a><a href="all-lessons.html">전체 통합본</a></nav></header>
+  <main class="page">
+    <section class="hero"><p class="eyebrow">SESSION 05 · 45–60 MIN</p><h1>폼과 제어 컴포넌트</h1><p class="hero-copy">폼 입력값의 주인을 React state로 두고, 값 변경·검증·제출까지 한 흐름으로 연결합니다.</p><div class="meta-row"><span class="meta">핵심: value · onChange · validation</span><span class="meta">사용자 입력</span></div></section>
+    <div class="lesson-layout"><article class="lesson-main">
+      <section class="content-section"><h2>이번 회차의 목표</h2><ul><li>input의 `value`와 React state가 동기화되는 방식 이해</li><li>공통 change handler와 `name` 속성의 역할 이해</li><li>submit 이벤트에서 입력값을 검증하고 정리</li></ul></section>
+      <section class="content-section"><h2>코드 따라가기</h2><p><a href="../../src/ScheduleDialog.jsx">ScheduleDialog.jsx</a>는 `form` state를 입력 필드에 전달합니다. `onChange`에서는 필드 이름에 맞는 값 하나만 갱신하고, 제출 handler는 제목·날짜·시간을 검증합니다.</p><pre class="code-note">const { name, value, type, checked } = event.target;
+setForm((currentForm) =&gt; ({
+  ...currentForm,
+  [name]: type === 'checkbox' ? checked : value,
+}));</pre><p>제어 컴포넌트에서는 state가 입력값의 기준입니다. state가 바뀌면 value가 갱신되고, 사용자의 입력도 handler를 거쳐 state로 돌아옵니다.</p></section>
+      <section class="content-section"><h2>진행 순서</h2><ol><li>5분: 모달의 필드와 데이터 구조를 짝지어 봅니다.</li><li>10분: `value`와 `onChange`가 함께 있는 이유를 확인합니다.</li><li>15분: 공통 handler에서 `name`으로 값을 선택하는 방식 추적</li><li>15분: 제목을 비우거나 종료 시간을 앞당겨 검증 확인</li><li>5분: 입력에서 onSave 호출까지 설명합니다.</li></ol></section>
+      <div class="practice"><h3>실습</h3><p>제목 길이 제한을 80자에서 30자로 바꾸어 입력해 보세요. 시간 비교 검증을 잠시 제거했을 때 잘못된 일정이 저장되는지도 확인하세요.</p></div>
+      <section class="content-section"><h2>마무리 질문</h2><ul class="checklist"><li>입력 요소의 현재 값을 최종적으로 관리하는 곳은 어디인가요?</li><li>`name` 속성이 공통 handler에서 하는 일은 무엇인가요?</li><li>검증이 통과하지 않으면 onSave는 호출되나요?</li></ul></section>
+    </article><aside class="lesson-aside"><h2>오늘의 흐름</h2><ol><li>state로 value 지정</li><li>onChange에서 갱신</li><li>submit에서 검증</li><li>정리된 값 전달</li></ol></aside></div>
+    <nav class="pager"><a href="lesson-04.html"><span>이전 회차</span>← 배열 렌더링</a><a href="lesson-06.html"><span>다음 회차</span>상태 업데이트와 CRUD →</a></nav>
+  </main>
+</body>
+</html>

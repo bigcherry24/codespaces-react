@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7회차 | useEffect와 localStorage</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">R</span> React 학습 노트</a><nav class="top-nav"><a href="index.html">과정 안내</a><a href="all-lessons.html">전체 통합본</a></nav></header>
+  <main class="page">
+    <section class="hero"><p class="eyebrow">SESSION 07 · 45–60 MIN</p><h1>useEffect와 localStorage</h1><p class="hero-copy">React 렌더링 밖의 브라우저 저장소와 동기화하고, 새로고침 후에도 데이터가 유지되는 원리를 익힙니다.</p><div class="meta-row"><span class="meta">핵심: useEffect · dependency · persistence</span><span class="meta">브라우저 API</span></div></section>
+    <div class="lesson-layout"><article class="lesson-main">
+      <section class="content-section"><h2>이번 회차의 목표</h2><ul><li>초기 state를 지연 초기화해 저장 데이터를 읽습니다.</li><li>`useEffect`가 렌더 후 동기화 작업을 수행하는 이유를 이해합니다.</li><li>`localStorage`는 같은 브라우저에만 저장되는 것을 확인합니다.</li></ul></section>
+      <section class="content-section"><h2>코드 따라가기</h2><p><a href="../../src/useSchedules.js">useSchedules.js</a>는 state 초기값을 읽는 함수로 전달하고, state가 바뀔 때 effect에서 JSON으로 저장합니다.</p><pre class="code-note">const [schedules, setSchedules] = useState(readSchedules);
+
+useEffect(() =&gt; {
+  window.localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(schedules)
+  );
+}, [schedules]);</pre><p>의존성 배열의 `schedules`가 바뀌면 effect가 다시 실행됩니다. 저장소는 문자열만 다루므로 객체 배열은 `JSON.stringify`와 `JSON.parse`를 거칩니다.</p></section>
+      <section class="content-section"><h2>진행 순서</h2><ol><li>5분: 새로고침 전후 일정이 유지되는지 확인합니다.</li><li>10분: `localStorage`의 문자열 저장 방식 확인</li><li>15분: 초기 읽기와 effect 저장의 실행 순서 추적</li><li>15분: 개발자 도구에서 `daybook-schedules-v1` 확인 후 값 변경</li><li>5분: state와 영속 저장의 차이를 정리합니다.</li></ol></section>
+      <div class="practice"><h3>실습</h3><p>개발자 도구에서 `localStorage`의 `daybook-schedules-v1` 값을 삭제하고 새로고침해 보세요. 저장 키를 바꾸면 기존 일정이 어떻게 되는지도 예측하고 실험하세요.</p></div>
+      <section class="content-section"><h2>마무리 질문</h2><ul class="checklist"><li>왜 localStorage 쓰기를 렌더 함수 안에서 하지 않나요?</li><li>effect가 다시 실행될 조건은 어떻게 정하나요?</li><li>다른 컴퓨터에서도 이 데이터가 보이나요? 왜 그런가요?</li></ul></section>
+    </article><aside class="lesson-aside"><h2>오늘의 흐름</h2><ol><li>초기 저장값 읽기</li><li>React state로 사용</li><li>state 변경</li><li>effect로 저장 동기화</li></ol></aside></div>
+    <nav class="pager"><a href="lesson-06.html"><span>이전 회차</span>← 상태 업데이트와 CRUD</a><a href="lesson-08.html"><span>다음 회차</span>디버깅과 확장 →</a></nav>
+  </main>
+</body>
+</html>

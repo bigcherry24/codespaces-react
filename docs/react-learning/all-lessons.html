@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="실제 React 일정 관리 앱을 따라 배우는 8회 학습 과정 통합본">
+  <title>React 학습 노트 | 전체 통합본</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">R</span> React 학습 노트</a><nav class="top-nav"><a href="index.html">과정 안내</a><a href="all-lessons.html" aria-current="page">전체 통합본</a></nav></header>
+  <main class="page">
+    <section class="hero"><p class="eyebrow">THE COMPLETE HANDBOOK · 8 SESSIONS</p><h1>실제 앱의 코드를 따라가며 React를 배웁니다.</h1><p class="hero-copy">월간 일정 관리 앱을 재료로 React 앱 시작부터 상태, 폼, CRUD, 저장, 테스트까지 차례로 살펴보는 통합 학습 문서입니다.</p><div class="meta-row"><span class="meta">8회 · 회당 45–60분</span><span class="meta">React 18 · Vite</span><span class="meta"><a href="index.html">회차별 문서 목록으로</a></span></div></section>
+    <nav class="all-nav" aria-label="회차 바로가기"><a href="#s1">01 시작</a><a href="#s2">02 컴포넌트</a><a href="#s3">03 state</a><a href="#s4">04 목록</a><a href="#s5">05 폼</a><a href="#s6">06 CRUD</a><a href="#s7">07 effect</a><a href="#s8">08 테스트</a></nav>
+    <div class="callout"><strong>권장 학습법:</strong> 각 단계에서 먼저 실행 결과를 예측하고, 앱에서 확인한 다음, 코드 흐름을 자기 말로 설명합니다. 한 번에 여러 파일을 바꾸기보다 작은 수정 하나를 만들고 검증하세요.</div>
+
+    <section class="all-session" id="s1"><p class="session-num">SESSION 01 · 45–60 MIN</p><h2>앱의 시작과 렌더링</h2><p>브라우저에서 첫 화면까지의 경로를 따라갑니다. <a href="../../index.html">index.html</a>의 `#root`를 찾고, <a href="../../src/index.jsx">index.jsx</a>에서 React root 생성과 `App` 렌더링을 확인합니다.</p><h3>학습 목표</h3><ul><li>HTML 진입점, React root, 앱 컴포넌트의 역할을 구분합니다.</li><li>`createRoot`와 `root.render`가 연결되는 이유를 설명합니다.</li></ul><h3>실습과 확인</h3><p>`App.jsx`의 제목을 바꾸고 저장해 브라우저 갱신을 관찰합니다. “HTML → index.jsx → App → 화면” 흐름을 그려보세요.</p><p><a href="lesson-01.html">1회차 단독 자료 열기 →</a></p></section>
+
+    <section class="all-session" id="s2"><p class="session-num">SESSION 02 · 45–60 MIN</p><h2>컴포넌트, JSX와 props</h2><p><a href="../../src/App.jsx">App.jsx</a>가 화면을 구성하고, <a href="../../src/ScheduleDialog.jsx">ScheduleDialog.jsx</a>가 일정 입력을 담당합니다. 부모가 `schedule`, `onClose`, `onSave`를 전달하는 부분을 찾아보세요.</p><h3>학습 목표</h3><ul><li>컴포넌트를 화면의 책임 단위로 이해합니다.</li><li>JSX 표현식과 props 전달, callback을 통한 부모와 자식 간 상호작용을 추적합니다.</li></ul><h3>실습과 확인</h3><p>모달 제목을 prop으로 전달하도록 바꾸어 봅니다. 데이터는 부모에서 자식으로 내려가고, 사용자의 저장 요청은 callback으로 부모에 전달되는 흐름을 설명합니다.</p><p><a href="lesson-02.html">2회차 단독 자료 열기 →</a></p></section>
+
+    <section class="all-session" id="s3"><p class="session-num">SESSION 03 · 45–60 MIN</p><h2>useState와 이벤트</h2><p>`App.jsx`에서 `visibleMonth`, `selectedDate`, `isDialogOpen`을 찾아 각 상태가 어떤 화면을 제어하는지 확인합니다.</p><h3>학습 목표</h3><ul><li>state가 렌더링 사이에 보존되는 값임을 이해합니다.</li><li>이벤트 → setter → 재렌더링 흐름을 설명합니다.</li></ul><h3>실습과 확인</h3><p>“오늘” 버튼 handler에서 바뀌는 state를 먼저 예측하고 실제로 눌러 확인합니다. DOM 직접 변경 없이 새 상태로 UI가 다시 계산되는 이유를 말해보세요.</p><p><a href="lesson-03.html">3회차 단독 자료 열기 →</a></p></section>
+
+    <section class="all-session" id="s4"><p class="session-num">SESSION 04 · 45–60 MIN</p><h2>배열 렌더링과 파생 데이터</h2><p>달력의 42일 생성, `map`을 이용한 셀 렌더링, 날짜별 `filter`, 일정 `sort`를 <a href="../../src/App.jsx">App.jsx</a>에서 살펴봅니다.</p><h3>학습 목표</h3><ul><li>배열에서 JSX 목록을 만들고 안정적인 `key`를 지정합니다.</li><li>원본 state와 렌더링을 위한 파생 데이터를 구분합니다.</li></ul><h3>실습과 확인</h3><p>날짜당 일정 표시 개수를 조절하고 초과 표시를 확인합니다. 선택 날짜 일정 목록을 별도 state로 저장하지 않고 계산할 수 있는 이유를 설명합니다.</p><p><a href="lesson-04.html">4회차 단독 자료 열기 →</a></p></section>
+
+    <section class="all-session" id="s5"><p class="session-num">SESSION 05 · 45–60 MIN</p><h2>폼과 제어 컴포넌트</h2><p><a href="../../src/ScheduleDialog.jsx">ScheduleDialog.jsx</a>에서 입력 요소의 `value`와 `onChange`, 공통 handler, 제출 전 검증을 따라갑니다.</p><h3>학습 목표</h3><ul><li>React state가 폼 입력값의 기준이 되는 과정을 이해합니다.</li><li>유효성 검사와 정리 작업 이후 callback이 호출되는 순서를 파악합니다.</li></ul><h3>실습과 확인</h3><p>제목을 비우거나 종료 시간을 시작 시간보다 빠르게 입력합니다. 어떤 검증이 저장을 막는지 확인하고, 입력 state부터 `onSave`까지 흐름을 설명합니다.</p><p><a href="lesson-05.html">5회차 단독 자료 열기 →</a></p></section>
+
+    <section class="all-session" id="s6"><p class="session-num">SESSION 06 · 45–60 MIN</p><h2>상태 업데이트와 CRUD</h2><p><a href="../../src/useSchedules.js">useSchedules.js</a>에서 일정 추가·수정·삭제를 봅니다. `map`, `filter`, spread를 사용해 기존 배열을 직접 변경하지 않습니다.</p><h3>학습 목표</h3><ul><li>불변 업데이트가 React 상태 변경에 적합한 이유를 설명합니다.</li><li>함수형 업데이트로 최신 배열을 기준 삼는 방법을 익힙니다.</li><li>화면 이벤트와 데이터 관리 책임을 구분합니다.</li></ul><h3>실습과 확인</h3><p>일정을 수정하고 제목만 바뀌는지 확인합니다. 나머지 필드가 보존되는 부분과 삭제 취소 시 일정이 그대로인 이유를 추적합니다.</p><p><a href="lesson-06.html">6회차 단독 자료 열기 →</a></p></section>
+
+    <section class="all-session" id="s7"><p class="session-num">SESSION 07 · 45–60 MIN</p><h2>useEffect와 localStorage</h2><p>같은 훅에서 초기 저장값을 읽는 부분과 `useEffect`로 변경 내용을 쓰는 부분을 비교합니다. 일정은 `JSON.stringify`/`JSON.parse`를 통해 브라우저 저장소에 기록됩니다.</p><h3>학습 목표</h3><ul><li>렌더링과 브라우저 저장소 동기화가 다른 일임을 이해합니다.</li><li>effect 의존성 배열이 다시 실행될 시점을 결정함을 확인합니다.</li><li>localStorage 데이터는 동일 브라우저에만 저장됨을 이해합니다.</li></ul><h3>실습과 확인</h3><p>개발자 도구에서 `daybook-schedules-v1` 키를 확인하고 삭제해 봅니다. 저장 키를 바꾸면 기존 값이 어떻게 되는지 예측합니다.</p><p><a href="lesson-07.html">7회차 단독 자료 열기 →</a></p></section>
+
+    <section class="all-session" id="s8"><p class="session-num">SESSION 08 · 45–60 MIN</p><h2>디버깅, 테스트와 기능 확장</h2><p><a href="../../src/App.test.jsx">기존 테스트</a>는 기본 안내 화면을 대상으로 하므로 현재 일정 관리 UI에 맞게 변경하는 것이 학습 과제입니다. 테스트 환경은 <a href="../../vite.config.js">vite.config.js</a>에서 확인합니다.</p><h3>학습 목표</h3><ul><li>오류를 재현하고 상태 흐름을 거슬러 원인을 좁힙니다.</li><li>사용자 관점의 테스트를 작성하고 빌드로 검증합니다.</li><li>배운 개념을 활용해 작은 기능을 끝까지 구현합니다.</li></ul><h3>실습과 확인</h3><p>빈 상태 개선, 일정 개수 표시, 제목 검색 중 하나를 골라 구현합니다. 요구사항을 작게 나누고, 어떤 state·props·저장 로직이 필요한지 먼저 설명한 뒤 검증합니다.</p><p><a href="lesson-08.html">8회차 단독 자료 열기 →</a></p></section>
+
+    <div class="callout"><strong>과정 완료 기준:</strong> 사용자 행동이 어떤 state를 바꾸고, 그 state가 어떤 JSX를 만들며, 저장 effect가 언제 실행되는지 실제 코드 위치를 짚어 설명할 수 있습니다.</div>
+    <footer class="footer">과정 목차와 각 회차의 독립 자료는 <a href="index.html">과정 안내</a>에서 확인할 수 있습니다.</footer>
+  </main>
+</body>
+</html>
